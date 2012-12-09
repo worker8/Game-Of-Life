@@ -1,6 +1,7 @@
 class Board
   Width = 40
   Height = 20
+  Speed = 0.1
 
   attr_accessor :cell_map
 
@@ -21,11 +22,12 @@ class Board
 
   def start_game
     count = 0
+    clear_map
     while true do
       print_map
       print count
       count +=1
-      sleep(1);
+      sleep(Speed);
       update_cell_state
       clear_map
     end
@@ -47,10 +49,6 @@ class Board
 
   def clear_map
     system('clear')
-    #total_CR = Width * Height + 1
-    #total_CR.times {
-    #print "\r"
-    #}
   end
 
   def print_map
@@ -133,7 +131,7 @@ end
 
 class Cell
   Alive_graphic = 'o'
-  Dead_graphic = '-'
+  Dead_graphic = ' '
   attr_accessor :live_state, :next_state
   def initialize(live_state = :dead)
     @live_state = live_state
@@ -180,28 +178,75 @@ end
 
 b = Board.new
 puts '--'
+#still square
+  #b.setXYto(9,19,:alive)
+  #b.setXYto(8,19,:alive)
+  #b.setXYto(9,18,:alive)
 #blinker bar
   #b.setXYto(3,5,:alive)
   #b.setXYto(3,6,:alive)
   #b.setXYto(3,7,:alive)
 #glider 
-  b.setXYto(1,0,:alive)
-  b.setXYto(2,1,:alive)
-  b.setXYto(0,2,:alive)
-  b.setXYto(1,2,:alive)
-  b.setXYto(2,2,:alive)
+  #b.setXYto(1,0,:alive)
+  #b.setXYto(2,1,:alive)
+  #b.setXYto(0,2,:alive)
+  #b.setXYto(1,2,:alive)
+  #b.setXYto(2,2,:alive)
+#gospel glider gun
+  #small still square
+    b.setXYto(5,1,:alive)
+    b.setXYto(6,1,:alive)
+    b.setXYto(5,2,:alive)
+    b.setXYto(6,2,:alive)
 
-b.setXYto(9,19,:alive)
-b.setXYto(8,19,:alive)
-b.setXYto(9,18,:alive)
-puts b.get_number_of_neighbours_for_cell_at(9,19)
-puts b.get_number_of_neighbours_for_cell_at(8,19)
-puts b.get_number_of_neighbours_for_cell_at(9,18)
-puts b.get_number_of_neighbours_for_cell_at(8,18)
-puts b.get_number_of_neighbours_for_cell_at(0,4)
+  #big thing 1
+    b.setXYto(5,11,:alive)
+    b.setXYto(6,11,:alive)
+    b.setXYto(7,11,:alive)
 
-puts '--'
-b.print_map
+    b.setXYto(4,12,:alive)
+    b.setXYto(8,12,:alive)
+
+    b.setXYto(3,13,:alive)
+    b.setXYto(9,13,:alive)
+
+    b.setXYto(3,14,:alive)
+    b.setXYto(9,14,:alive)
+
+    b.setXYto(6,15,:alive)
+
+    b.setXYto(4,16,:alive)
+    b.setXYto(8,16,:alive)
+
+    b.setXYto(5,17,:alive)
+    b.setXYto(6,17,:alive)
+    b.setXYto(7,17,:alive)
+
+    b.setXYto(6,18,:alive)
+
+  #smaller thing
+    b.setXYto(3,21,:alive)
+    b.setXYto(4,21,:alive)
+    b.setXYto(5,21,:alive)
+
+    b.setXYto(3,22,:alive)
+    b.setXYto(4,22,:alive)
+    b.setXYto(5,22,:alive)
+
+    b.setXYto(2,23,:alive)
+    b.setXYto(6,23,:alive)
+
+    b.setXYto(1,25,:alive)
+    b.setXYto(2,25,:alive)
+    b.setXYto(6,25,:alive)
+    b.setXYto(7,25,:alive)
+  #small square at the right
+    b.setXYto(3,35,:alive)
+    b.setXYto(4,35,:alive)
+    b.setXYto(3,36,:alive)
+    b.setXYto(4,36,:alive)
+
+
 b.start_game
 #puts "--cell test--"
   #puts Cell.new(:alive).calc_next_state(0)
@@ -220,34 +265,4 @@ b.start_game
 
 
 
-
-
-#count = 0
-#puts "--cell test--"
-#print Cell.new.cell_print
-
-#puts "--Board.new.print_map test--"
-#puts Board.new.print_map
-#puts "--Board.new.start_game test--"
-#Board.new.start_game
-#while true do
-
-  #print count
-  #count+=1
-  #if (count%2==0)
-  #print "................\n"
-  #else
-  #print "****************"
-  #end
-  #print "\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r\r"
-  #sleep(1);
-  #system('clear')
-
-#end
-
-#3.times do |i|
-  #print str = "string#{i}\nstring#{i}\nstring#{i}\n"
-  #sleep 1 # just for test
-  #system('clear')
-#end
 
